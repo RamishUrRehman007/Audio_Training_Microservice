@@ -1,0 +1,2 @@
+class AudioTrainingMicroserviceAppError(Exception):
+    pass
