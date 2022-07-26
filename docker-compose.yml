@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  api:
+    build: .
+    container_name: audio_training_microservice-api
+    ports:
+      - "${APP_PORT:-10000}:10000"
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT}
+      ENABLE_RELOAD_UVICORN: ${ENABLE_RELOAD_UVICORN}
+      POSTGRES_URL: ${POSTGRES_URL}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      ROOT_PATH: ""
+    volumes:
+      - ".:/srv"
+    networks:
+      - internal
+    hostname: audio_training_microservice
+    # depends_on:
+    #   - "postgres"
+
+networks:
+  internal:
+    external: false
