@@ -16,9 +16,24 @@ services:
     networks:
       - internal
     hostname: audio_training_microservice
-    # depends_on:
-    #   - "postgres"
-
+    depends_on:
+      - "postgres"
+  postgres:
+    image: postgres:13.3
+    container_name: audio_training_microservice-postgres
+    ports:
+      - "${HOST_DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - internal
+    volumes:
+      - "./migrations:/mnt"
+      - ./0000_init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data: {}
 networks:
   internal:
     external: false

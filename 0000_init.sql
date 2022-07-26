@@ -1,0 +1,1 @@
+CREATE DATABASE audio_training_microservice_dev;
