@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 import config, dto
+from config import logger
 
 router = APIRouter()
 
@@ -13,6 +14,10 @@ async def status_view() -> dto.JSON:
     \f
     :return:
     """
+
+    print("ramish")
+    
+    logger.info("Called API to get the status of an application")
 
     return dto.StatusViewResponse(
         service="audio_training_microservice",
