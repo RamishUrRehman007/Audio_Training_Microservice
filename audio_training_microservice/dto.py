@@ -17,3 +17,9 @@ class StatusViewResponse(BaseModel):
     version: str
     environment: str
     links: Optional[List[LinkResponse]]
+
+
+class Prediction(BaseModel):
+    phrase: str
+    time: int
+    confidence: float
