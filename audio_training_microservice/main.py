@@ -15,7 +15,8 @@ from error_handler import exception_handler
 from exceptions import AudioTrainingMicroserviceAppError
 from libs import log_sanitizer
 from views import (
-    status_view
+    status_view,
+    inference_view
 )
 
 
@@ -29,6 +30,8 @@ def init_logging() -> None:
 
 def include_routers(app: FastAPI) -> None:
     app.include_router(status_view.router, prefix="/v1")
+    app.include_router(inference_view.router, prefix="/v1")
+
 
 
 def add_exception_handlers(app: FastAPI) -> None:
