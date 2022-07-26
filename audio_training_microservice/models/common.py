@@ -55,7 +55,7 @@ class ModelPrediction(Base):
     audio_file_id = Column(Integer, ForeignKey("audio_files.id"), nullable=False)
     confidence_utterance = Column(Text)
     confidence_time = Column(Integer)
-    confidence_confidence = Column(Float)
+    confidence_value = Column(Float)
     created_at = Column(
         DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP")
     )

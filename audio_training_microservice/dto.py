@@ -43,6 +43,6 @@ class ModelPrediction(BaseModel):
     audio_file_id: AudioFileID
     confidence_utterance: str
     confidence_time: int
-    confidence_confidence: float
+    confidence_value: float
     created_at: datetime
     updated_at: datetime
